@@ -1,4 +1,7 @@
-<h1>Title</h1>
+<h1 *ngIf="showTitle; else defaultTitle">Fancy special Title</h1>
+<ng-template #defaultTitle>
+  <h1>Default Title</h1>
+</ng-template>
 
 <a [routerLink]="route.route" *ngFor="let route of routes$ | async">
   <h2>{{route.title}}</h2>

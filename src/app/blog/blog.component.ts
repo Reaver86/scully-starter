@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router, ROUTES} from '@angular/router';
-import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { isScullyRunning, ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 
 declare var ng: any;
@@ -15,6 +14,7 @@ declare var ng: any;
 })
 export class BlogComponent {
 
+  showTitle = !isScullyRunning();
   routes$: Observable<ScullyRoute[]>;
 
   constructor(private scullyRoutesService: ScullyRoutesService) {
